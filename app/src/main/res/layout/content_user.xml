@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".admin"
+    tools:showIn="@layout/activity_admin">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/back"
+            android:text="Πίσω"
+            android:onClick="back"
+            />
+        <ImageView
+            android:scaleType="fitXY"
+            android:src="@mipmap/pitch"
+            android:layout_width="500dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/pitch"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/white"
+            android:background="@android:color/black"/>
+
+        <TextView
+            android:text="Παίκτες"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pitch"
+            android:id="@+id/list"/>
+
+
+        <TextView
+            android:text="Στατιστικά"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pitch"
+            android:id="@+id/stats"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:text="Γεγονότα"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pitch"
+            android:layout_alignParentRight="true"
+            />
+
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
