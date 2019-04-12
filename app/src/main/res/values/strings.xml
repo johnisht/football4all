@@ -5,4 +5,5 @@
     <string name="title_activity_user_first">user_first</string>
     <string name="title_activity_admin">admin</string>
     <string name="title_activity_user">user</string>
+    <string name="title_activity_finished_games">FinishedGames</string>
 </resources>

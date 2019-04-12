@@ -29,16 +29,20 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".admin"
+            android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_admin"
-            android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="landscape"
-            android:configChanges="orientation|screenSize"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".user"
+            android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_user"
-            android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="landscape"
-            android:configChanges="orientation|screenSize"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FinishedGames"
+            android:label="@string/title_activity_finished_games"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
