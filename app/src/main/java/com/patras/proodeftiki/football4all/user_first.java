@@ -39,8 +39,8 @@ public class user_first extends AppCompatActivity {
         });
     }
     public void finished(View view) {
-        Button back = (Button) findViewById(R.id.finished);
-        back.setOnClickListener(new View.OnClickListener() {
+        Button finished = (Button) findViewById(R.id.finished);
+        finished.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(user_first.this, FinishedGames.class));

@@ -54,6 +54,7 @@
             android:layout_below="@+id/live"
             android:id="@+id/finished"
             android:textColor="@android:color/black"
+            android:onClick="finished"
             android:layout_marginTop="50dp"
             android:layout_weight="0"
             />
