@@ -57,6 +57,13 @@
             android:layout_alignParentRight="true"
             />
 
+        <TextView
+            android:id="@+id/list2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pitch"
+            android:layout_toRightOf="@+id/list" />
+
 
     </RelativeLayout>
 

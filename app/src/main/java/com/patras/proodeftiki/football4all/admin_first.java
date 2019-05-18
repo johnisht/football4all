@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class admin_first extends AppCompatActivity {
 
@@ -20,6 +21,7 @@ public class admin_first extends AppCompatActivity {
     }
 
     public void test1(View view) {
+
         Button test = (Button) findViewById(R.id.test);
         test.setOnClickListener(new View.OnClickListener() {
             @Override

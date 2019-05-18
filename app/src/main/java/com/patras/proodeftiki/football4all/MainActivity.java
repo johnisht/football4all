@@ -16,12 +16,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
     }
 
     @Override
@@ -110,8 +109,34 @@ public class MainActivity extends AppCompatActivity {
     public static class Match
     {
         private int id;
+        private String a;
+        private String b;
         private int hour; //θεωρω πως η ωρα δινεται με 4 ψηφια, 2 για την ωρα και 2 για τα λεπτα
         private int goals; //θεωρω πως τα γκολ δινονται με 4 ψηφια,2 για τα γκολ της καθε ομαδας
+        private String A;
+        private String B;
+
+        public Match() {
+        }
+
+
+        public String getA() {
+            return A;
+        }
+
+        public String getB() {
+            return B;
+        }
+
+
+
+        public void setA(String a) {
+            A = a;
+        }
+
+        public void setB(String b) {
+            B = b;
+        }
 
         public int getId(){
             return id;
@@ -132,8 +157,10 @@ public class MainActivity extends AppCompatActivity {
             this.goals = goals;
         }
 
-        protected Match(int id, int hour, int goals) {
+        protected Match(int id, String a, String b, int hour, int goals) {
             this.id = id;
+            this.a = A;
+            this.b = B;
             this.hour = hour;
             this.goals = goals;
         }
@@ -155,39 +182,6 @@ public class MainActivity extends AppCompatActivity {
         public void stop() {
         }
     }
-
-    public class Player
-    {
-        private char name;
-        private int number, age;
-        public Player(char name, int number, int age){
-            this.name = name;
-            this.number = number;
-            this.age = age;
-        }
-        public int getName(){
-            return name;
-        }
-        public void setName(char String){
-            this.name = name;
-        }
-        public int getNumber(){
-            return number;
-        }
-        public void setNumber(int number){
-            this.number = number;
-        }
-        public int getAge(){
-            return age;
-        }
-        public void setAge(int age){
-            this.age = age;
-        }
-    }
-
-
-
-
 
 
 

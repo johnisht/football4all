@@ -31,32 +31,14 @@ public class user extends AppCompatActivity {
     }
 
 
-    abstract class User extends AppCompatActivity {
+    abstract static class User extends AppCompatActivity {
 
         public void set_id(int id){}
         public void get_id(int id){}
 
     }
 
-    abstract class Viewer extends User {
 
-        private int id;
-
-        public Viewer(int id)
-        {
-            this.id = id;
-        }
-
-        public void set_id(int id)
-        {
-            this.id = id;
-        }
-
-        public int get_id()
-        {
-            return id;
-        }
-    }
 
 
 
