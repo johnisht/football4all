@@ -28,4 +28,65 @@ public class admin extends AppCompatActivity {
             }
         });
     }
+
+    public class Commentary extends MainActivity.Match {
+
+        String[] Comments;
+
+        protected Commentary(int id, int hour, int goals) {
+            super(id, hour, goals);
+        }
+
+        public void commentary()
+        {
+            Comments = new String[]{"Κάνει πάσα", "Κάνει μακρινή μπαλιά", "Κάνει τάκλιν", "Βγάζει την σέντρα", "Κάνει κεφαλιά", "Μπλοκάρει","Γκοοοολ",
+                    "Κάνει βολέ", "Ελεύθερο λάκτισμα", "Πλάγιο", "Φάουλ", "Κίτρινη κάρτα", "Κόκκινη κάρτα", "Αλλαγή", "Σουτάρει", "Κόρνερ"};
+        }
+    }
+
+    public abstract class Reporter extends user {
+
+
+        private int id;
+        private String name;
+        private String surname;
+
+        public Reporter(int id, String name, String surname)
+        {
+            this.id = id;
+            this.name = name;
+            this.surname = surname;
+        }
+
+        public void set_id(int id)
+        {
+            this.id = id;
+        }
+
+        public void set_name(String name)
+        {
+            this.name = name;
+        }
+
+        public void set_surname(String surname)
+        {
+            this.surname = surname;
+        }
+
+        public int get_id()
+        {
+            return id;
+        }
+
+        public String get_name()
+        {
+            return name;
+        }
+
+        public String get_surname()
+        {
+            return surname;
+        }
+    }
+
 }
