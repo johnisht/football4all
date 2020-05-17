@@ -19,31 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".admin_first"
-            android:label="@string/title_activity_admin_first"
-            android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity
-            android:name=".user_first"
-            android:label="@string/title_activity_user_first"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".admin"
-            android:configChanges="orientation|screenSize"
-            android:label="@string/title_activity_admin"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".user"
-            android:configChanges="orientation|screenSize"
-            android:label="@string/title_activity_user"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".FinishedGames"
-            android:label="@string/title_activity_finished_games"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

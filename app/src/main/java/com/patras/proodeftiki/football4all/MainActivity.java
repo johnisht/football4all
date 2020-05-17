@@ -6,11 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
-import java.util.Timer;
-import java.util.TimerTask;
+
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,24 +43,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void admin(View view) {
-        Button admin = (Button) findViewById(R.id.Admin);
-        admin.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view){
-            startActivity(new Intent(MainActivity.this, admin_first.class));
-        }
-        });
-    }
-    public void user(View view) {
-        Button admin = (Button) findViewById(R.id.User);
-        admin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view){
-                startActivity(new Intent(MainActivity.this, user_first.class));
-            }
-        });
-    }
 
     public class User{
 
