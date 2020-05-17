@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,125 +65,68 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public class Statistics
-    {
-        private int possesionA, possesionB; //οπου Α και Β οι 2 ομαδες
-        private int offsidesA, offsidesB;
-
-        public Statistics(int possesionA, int possesionB, int offsidesA, int offsidesB) {
-            this.possesionA = possesionA;
-            this.possesionB = possesionB;
-            this.offsidesA = offsidesA;
-            this.offsidesB = offsidesB;
-        }
-
-        public int getPossesionA(){
-            return possesionA;
-        }
-        public void setPossesionA(int possesionΑ){
-            this.possesionA = possesionΑ;
-        }
-        public int getPossesionB(){
-            return possesionB;
-        }
-        public void setPossesionB(int possesionB){
-            this.possesionB = possesionB;
-        }
-        public int getOffsidesA(){
-            return offsidesA;
-        }
-        public void setOffsidesA(int offsidesA){
-            this.offsidesA = offsidesA;
-        }
-        public int getOffsidesB(){
-            return offsidesB;
-        }
-        public void setOffsidesB(int offsidesB){
-            this.offsidesB = offsidesB;
-        }
+    public class User{
 
     }
 
+    public class Viewer extends User{
 
-
-
-    public static class Match
-    {
-        private int id;
-        private String a;
-        private String b;
-        private int hour; //θεωρω πως η ωρα δινεται με 4 ψηφια, 2 για την ωρα και 2 για τα λεπτα
-        private int goals; //θεωρω πως τα γκολ δινονται με 4 ψηφια,2 για τα γκολ της καθε ομαδας
-        private String A;
-        private String B;
-
-        public Match() {
-        }
-
-
-        public String getA() {
-            return A;
-        }
-
-        public String getB() {
-            return B;
-        }
-
-
-
-        public void setA(String a) {
-            A = a;
-        }
-
-        public void setB(String b) {
-            B = b;
-        }
-
-        public int getId(){
-            return id;
-        }
-        public void setId(int id){
-            this.id = id;
-        }
-        public int getHour(){
-            return hour;
-        }
-        public void setHour(int hour){
-            this.hour = hour;
-        }
-        public int getGoals(){
-            return goals;
-        }
-        public void setGoals(int goals){
-            this.goals = goals;
-        }
-
-        protected Match(int id, String a, String b, int hour, int goals) {
-            this.id = id;
-            this.a = A;
-            this.b = B;
-            this.hour = hour;
-            this.goals = goals;
-        }
-
-        //προσπαθω να φτιαξω το timer
-        int secondsPassed = 0;
-        Timer myTimer = new Timer ();
-        TimerTask task = new TimerTask()
-        {
-            public void run()
-            {
-                secondsPassed++;
-                System.out.println(secondsPassed);
-            }
-        };
-        public void start(){
-            myTimer.scheduleAtFixedRate(task,1000,1000);
-        }
-        public void stop() {
-        }
     }
 
+    public class dis_Viewer extends User{
+
+    }
+
+    public class Reporter{
+        int d_int=0;
+        String name,surname;
+        Date date = new Date();
+    }
+
+    public class Report_for_Dis extends Reporter{
+
+    }
+
+    public class Voice_assistant{
+
+    }
+
+    public class Match{
+        int a_id,start_time,score;
+    }
+
+    public class Player{
+        String name,position;
+        int age,number;
+    }
+
+    public class Line_Up extends Player{
+
+    }
+
+    public class Statistics{
+        int corner,offside,fouls,cards;
+    }
+
+    public class Match_Statistics extends Statistics{
+
+    }
+
+    public class Player_Statistics extends Statistics{
+
+    }
+
+    public class Commentary{
+
+    }
+
+    public class Ball{
+        float position_x,position_y;
+    }
+
+    public class Database{
+
+    }
 
 
 }
