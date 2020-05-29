@@ -1,17 +1,29 @@
 package com.patras.proodeftiki.football4all;
 
-import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.app.Dialog;
+import android.widget.Button;
+import android.widget.Chronometer;
+import android.widget.TextView;
 
-
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-
+Dialog myDialog;
+    List<Player> Liverpool = new ArrayList<Player>();
+    List<Player> ManchesterCity = new ArrayList<Player>();
+int first=0;
+int online=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -19,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
     }
 
     @Override
@@ -43,6 +56,71 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void user(View view) {
+        if (first==0) {
+            first=1;
+            User temp = new User();
+            myDialog = new Dialog(this);
+            temp.displayForm();
+        }
+        setContentView(R.layout.activity_user_first);
+
+
+    }
+
+
+    public void admin(View view) {
+        if (first==0) {
+            first=1;
+            Reporter temp = new Reporter();
+            myDialog = new Dialog(this);
+            temp.create_acc();
+        }
+        setContentView(R.layout.activity_admin_first);
+    }
+
+    public void back(View view) {
+        setContentView(R.layout.activity_main);
+    }
+
+    public void Start(View view) {
+        Match LiveMc = new Match();
+        setContentView(R.layout.activity_admin);
+        LiveMc.start();
+        online=1;
+    }
+
+    public void Live(View view) {
+        setContentView(R.layout.livegames);
+        Button games = (Button) findViewById(R.id.LiveMc);
+        if (online==0) {
+            games.setVisibility(View.GONE);
+        }
+        if (online==1) {
+            games.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void watch(View view){
+        setContentView(R.layout.activity_user);
+        TextView list = (TextView) findViewById(R.id.list);
+        list.append("\nLiverpool");
+        for (int i=0; i<Liverpool.size(); i++) {
+            list.append("\n"+Liverpool.get(i).name);
+        }
+        list.append("\nManchester City");
+        for (int i=0; i<ManchesterCity.size(); i++) {
+            list.append("\n"+ManchesterCity.get(i).name);
+        }
+        Chronometer simpleChronometer = (Chronometer) findViewById(R.id.timer); // initiate a chronometer
+        simpleChronometer.start();
+    }
+
+    public void finished(View view) {
+        setContentView(R.layout.activity_finished_games);
+    }
+
+
 
     public class User {
         public void inchange(int game,int comm_id) {
@@ -52,7 +130,17 @@ public class MainActivity extends AppCompatActivity {
 
         }
         public void displayForm(){
-
+            TextView txtclose;
+            myDialog.setContentView(R.layout.custompopup);
+            txtclose =(TextView) myDialog.findViewById(R.id.txtclose);
+            txtclose.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    myDialog.dismiss();
+                }
+            });
+            myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            myDialog.show();
         }
         public void isFirstTime(){
 
@@ -95,9 +183,21 @@ public class MainActivity extends AppCompatActivity {
         int d_int=0;
         String name,surname;
         Date date = new Date();
-        public void create_acc(){
 
+        public void create_acc(){
+            TextView txtclose;
+            myDialog.setContentView(R.layout.custompopup);
+            txtclose =(TextView) myDialog.findViewById(R.id.txtclose);
+            txtclose.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    myDialog.dismiss();
+                }
+            });
+            myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            myDialog.show();
         }
+
         public void displayF(){
 
         }
@@ -173,7 +273,9 @@ public class MainActivity extends AppCompatActivity {
     public class Match{
         int a_id,start_time,score;
         public void start(){
-
+            displayGame();
+            Chronometer simpleChronometer = (Chronometer) findViewById(R.id.timer); // initiate a chronometer
+            simpleChronometer.start();
         }
         public void stop(){
 
@@ -185,7 +287,28 @@ public class MainActivity extends AppCompatActivity {
 
         }
         public void displayGame(){
-
+            Random r = new Random();
+            TextView list = (TextView) findViewById(R.id.list);
+            list.append("\nLiverpool");
+            for (int i=1;i<11;i++){
+                Player temp = new Player();
+                temp.name = "Liverpool"+i;
+                temp.age =  r.nextInt(40 - 18) + 18;
+                temp.number = i;
+                temp.position= "Επίθεση";
+                Liverpool.add(temp);
+                list.append("\n"+temp.name);
+            }
+            list.append("\nManchester City");
+            for (int i=1;i<11;i++){
+                Player temp = new Player();
+                temp.name = "ManchesterCity"+i;
+                temp.age =  r.nextInt(40 - 18) + 18;
+                temp.number = i;
+                temp.position= "Επίθεση";
+                ManchesterCity.add(temp);
+                list.append("\n"+temp.name);
+            }
         }
     }
 
@@ -208,6 +331,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public class Line_Up extends Player{
+
         public void Modify_Team(){
 
         }
@@ -375,6 +499,8 @@ public class MainActivity extends AppCompatActivity {
         public void displayToUser(){
 
         }
+
+
     }
 
     public class History{

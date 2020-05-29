@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".admin"
     tools:showIn="@layout/activity_admin">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,7 +14,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/back"
             android:text="Πίσω"
-            android:onClick="back"
+            android:onClick="user"
             />
         <ImageView
             android:scaleType="fitXY"
@@ -25,7 +24,7 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/pitch"
             />
-        <TextView
+        <Chronometer
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="00:00"

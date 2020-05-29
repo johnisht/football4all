@@ -7,55 +7,58 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".admin"
     tools:showIn="@layout/activity_admin">
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <Button xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/back"
-        android:text="Πίσω"
-        android:onClick="back"
-        />
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="admin"
+            android:text="Πίσω" />
+
         <ImageView
-            android:scaleType="fitXY"
-            android:src="@mipmap/pitch"
+            android:id="@+id/pitch"
             android:layout_width="500dp"
             android:layout_height="200dp"
             android:layout_centerHorizontal="true"
-            android:id="@+id/pitch"
-            />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="00:00"
-        android:layout_centerHorizontal="true"
-        android:textColor="@android:color/white"
-        android:background="@android:color/black"/>
+            android:scaleType="fitXY"
+            android:src="@mipmap/pitch" />
+
+        <Chronometer
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/black"
+            android:text="00:00"
+            android:textColor="@android:color/white" />
 
         <TextView
-            android:text="Λίστα παικτών"
+            android:id="@+id/list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/pitch"
-            android:id="@+id/list"/>
+            android:text="Λίστα παικτών" />
 
 
         <TextView
-            android:text="Στατιστικά"
+            android:id="@+id/stats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/pitch"
-            android:id="@+id/stats"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:text="Στατιστικά" />
 
         <TextView
-            android:text="Λίστα Γεγονότων"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/pitch"
             android:layout_alignParentRight="true"
-            />
+            android:text="Λίστα Γεγονότων" />
 
         <TextView
             android:id="@+id/list2"

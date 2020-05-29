@@ -29,35 +29,46 @@
             android:id="@+id/welcome"
             android:paddingBottom="50dp"
             android:textColor="@android:color/white"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Live παιχνίδια"
-            android:layout_below="@+id/welcome"
-            android:textColor="@android:color/white"
-            android:layout_weight="0"
-            android:textStyle="bold"
-            android:id="@+id/live"/>
+
         <Button xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/test"
-            android:text="Barcelona - Real"
+            android:text="Live Παιχνίδια"
             android:layout_weight="0"
-            android:onClick="test1"
+            android:onClick="Live"
             android:layout_below="@+id/text1"
             />
         <Button xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ιστορικό"
+            android:text="Ιστορικό Αγώνων"
             android:layout_below="@+id/live"
             android:id="@+id/finished"
             android:textColor="@android:color/black"
             android:onClick="finished"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="0"
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coming Soon"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="50dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Live εκπομπή"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Επικοινωνία"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ειδήσεις"/>
 
 
     </LinearLayout>
