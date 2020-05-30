@@ -3,8 +3,10 @@ package com.patras.proodeftiki.football4all;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -100,10 +102,14 @@ int online=0;
             games.setVisibility(View.VISIBLE);
         }
     }
-
+    private static final String TAG = "MyActivity";
     public void watch(View view){
+
         setContentView(R.layout.activity_user);
         TextView list = (TextView) findViewById(R.id.list);
+        TextView actionsL = (TextView) findViewById(R.id.lActionsU);
+        Chronometer userChronometer = (Chronometer) findViewById(R.id.User_timer); // initiate a chronometer
+        userChronometer.start();
         list.append("\nLiverpool");
         for (int i=0; i<Liverpool.size(); i++) {
             list.append("\n"+Liverpool.get(i).name);
@@ -112,8 +118,10 @@ int online=0;
         for (int i=0; i<ManchesterCity.size(); i++) {
             list.append("\n"+ManchesterCity.get(i).name);
         }
-        Chronometer simpleChronometer = (Chronometer) findViewById(R.id.timer); // initiate a chronometer
-        simpleChronometer.start();
+
+       for (int i=0; i<comments.size(); i++) {
+            actionsL.append("\n"+comments.get(i));
+        }
     }
 
     public void finished(View view) {
@@ -270,12 +278,42 @@ int online=0;
         }
     }
 
+
+    List<String> comments = new ArrayList<>();
     public class Match{
         int a_id,start_time,score;
+        Chronometer simpleChronometer;
+        Random r = new Random();
+        private static final String TAG = "MyActivity";
         public void start(){
+
             displayGame();
-            Chronometer simpleChronometer = (Chronometer) findViewById(R.id.timer); // initiate a chronometer
+            simpleChronometer= (Chronometer) findViewById(R.id.timer); // initiate a chronometer
             simpleChronometer.start();
+            final Commentary test = new Commentary();
+
+            test.fill();
+            simpleChronometer.setOnChronometerTickListener(new Chronometer.OnChronometerTickListener() {
+                @Override
+                public void onChronometerTick(Chronometer chronometer) {
+                    long elapsedMillis = SystemClock.elapsedRealtime() - chronometer.getBase();
+                    if(elapsedMillis>6000){
+                        String message;
+                        int Rplayer =  r.nextInt(10 - 1) + 1;
+                        int Raction =  r.nextInt(3 - 1) + 1;
+                        int Rteam =  r.nextInt(2 - 0) + 1;
+                        if (Rteam==1)
+                            message = Liverpool.get(Rplayer).name + " " + test.comments.get(Raction);
+                        else {
+                            message=ManchesterCity.get(Rplayer).name+" "+test.comments.get(Raction);
+                        }
+                        TextView actionsL = (TextView) findViewById(R.id.Lactions);
+                        actionsL.append("\n"+message);
+                        comments.add(message);
+                    }
+                }
+            });
+
         }
         public void stop(){
 
@@ -359,6 +397,17 @@ int online=0;
     }
 
     public class Commentary{
+        List<String> comments = new ArrayList<String>();
+        String s = "Shoot";
+        String c = "Corner";
+        String g = "Goal";
+        String f = "foul";
+        public void fill() {
+            comments.add(s);
+            comments.add(c);
+            comments.add(g);
+            comments.add(f);
+        }
 
     }
 
